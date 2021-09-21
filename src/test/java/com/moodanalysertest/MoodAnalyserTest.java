@@ -3,6 +3,7 @@ package com.moodanalysertest;
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.moodanalyser.MoodAanalyserException;
 import com.moodanalyser.MoodAnalyser;
 
 public class MoodAnalyserTest {
@@ -12,9 +13,13 @@ public class MoodAnalyserTest {
 	 */
 	@Test
 	public void testSad() {
-		MoodAnalyser moodAnalyser = new MoodAnalyser("I am in sad mood");
-		String mood = moodAnalyser.analyseMood();
-		Assert.assertEquals("SAD", mood);
+		try {
+			MoodAnalyser moodAnalyser = new MoodAnalyser("I am in sad mood");
+			String mood = moodAnalyser.analyseMood();
+			Assert.assertEquals("SAD", mood);
+		} catch (MoodAanalyserException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -22,9 +27,13 @@ public class MoodAnalyserTest {
 	 */
 	@Test
 	public void testHappy() {
-		MoodAnalyser moodAnalyser = new MoodAnalyser("I am in no mood");
-		String mood = moodAnalyser.analyseMood();
-		Assert.assertEquals("HAPPY", mood);
+		try {
+			MoodAnalyser moodAnalyser = new MoodAnalyser("I am in no mood");
+			String mood = moodAnalyser.analyseMood();
+			Assert.assertEquals("HAPPY", mood);
+		} catch (MoodAanalyserException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -32,10 +41,12 @@ public class MoodAnalyserTest {
 	 */
 	@Test
 	public void givenNullMoodShouldReturnHappy() {
-		MoodAnalyser moodAnalyser = new MoodAnalyser(null);
-		String mood = moodAnalyser.analyseMood();
-		Assert.assertEquals("HAPPY", mood);
-
+		try {
+			MoodAnalyser moodAnalyser = new MoodAnalyser(null);
+			String mood = moodAnalyser.analyseMood();
+			Assert.assertEquals("HAPPY", mood);
+		} catch (MoodAanalyserException e) {
+			e.printStackTrace();
+		}
 	}
-
 }
