@@ -6,7 +6,7 @@ import org.junit.Test;
 import com.moodanalyser.MoodAnalyser;
 
 public class MoodAnalyserTest {
-	
+
 	/**
 	 * Test case to check if sad
 	 */
@@ -16,7 +16,7 @@ public class MoodAnalyserTest {
 		String mood = moodAnalyser.analyseMood();
 		Assert.assertEquals("SAD", mood);
 	}
-	
+
 	/**
 	 * Test case to check if happy
 	 */
@@ -25,6 +25,17 @@ public class MoodAnalyserTest {
 		MoodAnalyser moodAnalyser = new MoodAnalyser("I am in no mood");
 		String mood = moodAnalyser.analyseMood();
 		Assert.assertEquals("HAPPY", mood);
+	}
+
+	/**
+	 * Test case handles the null value returns happy
+	 */
+	@Test
+	public void givenNullMoodShouldReturnHappy() {
+		MoodAnalyser moodAnalyser = new MoodAnalyser(null);
+		String mood = moodAnalyser.analyseMood();
+		Assert.assertEquals("HAPPY", mood);
+
 	}
 
 }
