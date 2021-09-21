@@ -7,17 +7,23 @@ import com.moodanalyser.MoodAnalyser;
 
 public class MoodAnalyserTest {
 	
+	/**
+	 * Test case to check if sad
+	 */
 	@Test
 	public void testSad() {
-		MoodAnalyser moodAnalyser = new MoodAnalyser();
-		String mood = moodAnalyser.analyseMood("I am in sad mood");
+		MoodAnalyser moodAnalyser = new MoodAnalyser("I am in sad mood");
+		String mood = moodAnalyser.analyseMood();
 		Assert.assertEquals("SAD", mood);
 	}
 	
+	/**
+	 * Test case to check if happy
+	 */
 	@Test
 	public void testHappy() {
-		MoodAnalyser moodAnalyser = new MoodAnalyser();
-		String mood = moodAnalyser.analyseMood("I am in Any mood");
+		MoodAnalyser moodAnalyser = new MoodAnalyser("I am in no mood");
+		String mood = moodAnalyser.analyseMood();
 		Assert.assertEquals("HAPPY", mood);
 	}
 
